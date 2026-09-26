@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+import { getCollection } from 'astro:content';
+
+const reseñas = await getCollection('resenias');
+---
+
+<BaseLayout title="Reseñas" description="Listado completo de reseñas de productos.">
+  <h1 class="text-3xl font-bold">Reseñas</h1>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2">
+    {reseñas.map((entry) => (
+      <EntryCard
+        title={entry.data.title}
+        summary={entry.data.summary}
+        href={`/resenias/${entry.data.slug}`}
+        category={entry.data.category}
+        tags={entry.data.tags}
+      />
+    ))}
+  </div>
+</BaseLayout>
