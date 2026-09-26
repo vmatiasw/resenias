@@ -31,15 +31,11 @@ npm run build
 
 ## Administración desde celular
 
-Se usa Decap CMS en `/admin` con backend GitHub.
+Se usa Decap CMS en `/admin` con backend `turbo-github` (Decap Turbo).
 
-1. Crear GitHub OAuth App para el dominio de GitHub Pages.
-2. Configurar autenticación de Decap CMS según la guía oficial.
+1. Crear organización/sitio en Decap Turbo y conectar GitHub.
+2. Configurar `turbo_site_id` en `public/admin/config.yml`.
 3. Desde `/admin` crear/editar entradas y subir imágenes.
-
-## Formularios
-
-Configurar endpoints de Formspree en `src/config/site.ts`.
 
 ## Deploy
 

@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { siteConfig } from '../../config/site';
 ---
 
-<BaseLayout title="Ayuda y FAQ" description="Preguntas frecuentes y formulario de sugerencias.">
+<BaseLayout title="Ayuda y FAQ" description="Preguntas frecuentes sobre el sitio y su contenido.">
   <h1 class="text-3xl font-bold">Ayuda / FAQ</h1>
   <dl class="mt-6 space-y-4">
     <div>
@@ -15,20 +14,7 @@ import { siteConfig } from '../../config/site';
       <dd class="text-stone-700">Usá la página de categorías o el buscador por texto y etiquetas.</dd>
     </div>
   </dl>
-
-  <section class="mt-8">
-    <h2 class="text-xl font-semibold">Preguntas / sugerencias</h2>
-    <form class="mt-4 space-y-3 rounded border border-stone-200 bg-white p-4" method="POST" action={siteConfig.forms.questions}>
-      <label class="block text-sm">Nombre
-        <input required class="mt-1 w-full rounded border border-stone-300 px-3 py-2" type="text" name="nombre" />
-      </label>
-      <label class="block text-sm">Email
-        <input required class="mt-1 w-full rounded border border-stone-300 px-3 py-2" type="email" name="email" />
-      </label>
-      <label class="block text-sm">Mensaje
-        <textarea required class="mt-1 w-full rounded border border-stone-300 px-3 py-2" name="mensaje" rows="4"></textarea>
-      </label>
-      <button class="rounded bg-stone-900 px-4 py-2 text-sm font-medium text-white" type="submit">Enviar</button>
-    </form>
-  </section>
+  <p class="mt-8 text-stone-700">
+    Si necesitás ayuda adicional, usá la página de contacto para escribir por email.
+  </p>
 </BaseLayout>

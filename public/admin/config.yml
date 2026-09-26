@@ -1,5 +1,6 @@
 backend:
-  name: github
+  name: turbo-github
+  turbo_site_id: "248e718b-987d-483f-8f38-a9a68d57461c"
   repo: vmatiasw/resenias
   branch: main
 
