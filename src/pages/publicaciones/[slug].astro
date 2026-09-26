@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const publicaciones = await getCollection('publicaciones');
+  return publicaciones.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary} image={entry.data.images[0]?.src}>
+  <article>
+    <header>
+      <h1 class="text-3xl font-bold">{entry.data.title}</h1>
+      <p class="mt-3 text-stone-700">{entry.data.summary}</p>
+    </header>
+
+    {entry.data.images[0] && (
+      <img class="mt-6 rounded-lg border border-stone-200" src={entry.data.images[0].src} alt={entry.data.images[0].alt} loading="lazy" />
+    )}
+
+    <div class="prose mt-6 max-w-none prose-stone">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

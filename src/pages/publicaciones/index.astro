@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+import { getCollection } from 'astro:content';
+
+const publicaciones = await getCollection('publicaciones');
+---
+
+<BaseLayout title="Publicaciones" description="Recomendaciones y guías prácticas.">
+  <h1 class="text-3xl font-bold">Publicaciones y recomendaciones</h1>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2">
+    {publicaciones.map((entry) => (
+      <EntryCard
+        title={entry.data.title}
+        summary={entry.data.summary}
+        href={`/publicaciones/${entry.data.slug}`}
+        category={entry.data.category}
+        tags={entry.data.tags}
+      />
+    ))}
+  </div>
+</BaseLayout>
