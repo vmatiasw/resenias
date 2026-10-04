@@ -1,0 +1,59 @@
+backend:
+  name: turbo-github
+  turbo_site_id: "248e718b-987d-483f-8f38-a9a68d57461c"
+  repo: vmatiasw/resenias
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://vmatiasw.github.io/resenias
+display_url: https://vmatiasw.github.io/resenias
+
+collections:
+  - name: resenias
+    label: Reseñas
+    folder: src/content/resenias
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Producto, name: product, widget: string }
+      - { label: Resumen, name: summary, widget: text }
+      - label: Imágenes
+        name: images
+        widget: list
+        fields:
+          - { label: URL, name: src, widget: image }
+          - { label: Alt, name: alt, widget: string }
+      - { label: Etiquetas, name: tags, widget: list, field: { label: Etiqueta, name: tag, widget: string } }
+      - { label: Categoría, name: category, widget: string }
+      - label: Enlaces relacionados
+        name: links
+        widget: list
+        fields:
+          - { label: Texto, name: label, widget: string }
+          - { label: URL, name: url, widget: string }
+      - { label: Contenido, name: body, widget: markdown }
+
+  - name: publicaciones
+    label: Publicaciones
+    folder: src/content/publicaciones
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Resumen, name: summary, widget: text }
+      - label: Imágenes
+        name: images
+        widget: list
+        fields:
+          - { label: URL, name: src, widget: image }
+          - { label: Alt, name: alt, widget: string }
+      - { label: Etiquetas, name: tags, widget: list, field: { label: Etiqueta, name: tag, widget: string } }
+      - { label: Categoría, name: category, widget: string }
+      - { label: Contenido, name: body, widget: markdown }
